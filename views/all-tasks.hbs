@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">x
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/homepage">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" href="/task-lists">All Task Lists <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/task-lists/new">Add a New List<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/all-tasks">All Tasks<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/all-tasks/new">Add Task<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Log Out<span class="sr-only">(current)</span></a>
+      </li>
+  </div>
+</nav>
+
+<div class='form'>
+    <form action="/all-tasks" method="GET">
+     <br><br>
+      <label class="col-form-label"for="taskName">Task: </label>
+        <input class="form-control" type="text" name="taskName">
+        <label class="col-form-label"for="completion">Completion: </label>
+        <select class="custom-select" name="completion">
+          <option value='All'>All</option>
+          <option value='Complete'>Complete</option>
+          <option value='Incomplete'>Incomplete</option>
+        </select>
+        <label class="col-form-label"for="tlist">List: </label>
+        <select class="custom-select" name="tlist">
+          <option value='All'>All</option>
+        {{#each taskList}}
+          <option value={{this.name}}>{{this.name}}</option>
+        {{/each}}
+        </select>
+        <br><br>
+        <button class = 'btn btn-primary' type="submit"> Filter </button>
+        <br><br>
+        </form>
+</div>
+
+ <form action="/all-tasks" method="POST">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Date Created</th>
+      <th scope="col">Belongs to</th>
+      <th scope="col">Completed</th>
+    </tr>
+  </thead>
+    <tbody>
+      {{#each allTasks}}
+      <tr>
+      <th scope="row">{{this.name}}</th>
+      <td>{{this.createdAt}}</td>
+      <td>{{this.list}}</td>
+      {{#if this.completed}}
+        <td><input type="checkbox" name= 'completion' value={{this._id}}>Complete</td>
+      {{else}}
+        <td><input type="checkbox" name= 'completion' value={{this._id}}>Incomplete</td>
+      {{/if}}
+    </tr>
+    {{/each}}
+    </tbody>
+</table> 
+
+<button class = 'btn btn-primary' type="submit"> Update </button>
+</form>
+

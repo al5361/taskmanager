@@ -1,0 +1,40 @@
+{
+  "name": "final-project",
+  "version": "1.0.0",
+  "description": "The content below is an example project proposal / requirements document. Replace the text below the lines marked \"__TODO__\" with details specific to your project. Remove the \"TODO\" lines.",
+  "main": "app.js",
+  "dependencies": {
+    "angular2": "^2.0.0-beta.21",
+    "bcrypt": "^4.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-flash": "0.0.2",
+    "express-session": "^1.17.0",
+    "hbs": "^4.1.1",
+    "mongoose": "^5.9.10",
+    "mongoose-url-slugs": "^1.0.2",
+    "nodemon": "^2.0.3",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-mocha": "^6.3.0",
+    "mocha": "^7.1.2"
+  },
+  "scripts": {
+    "test": "mocha",
+    "devStart": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nyu-csci-ua-0480-008-spring-2017/final-project-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nyu-csci-ua-0480-008-spring-2017/final-project-example/issues"
+  },
+  "homepage": "https://github.com/nyu-csci-ua-0480-008-spring-2017/final-project-example#readme"
+}

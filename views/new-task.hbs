@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">x
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/homepage">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+         <a class="nav-link" href="/task-lists">All Task Lists <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/task-lists/new">Add a New List<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/all-tasks">All Tasks<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/all-tasks/new">Add Task<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Log Out<span class="sr-only">(current)</span></a>
+      </li>
+  </div>
+</nav>
+
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+       <div class="card card-body">
+           <h2 class="text-center mb-3"> Add a Task</h2>
+            {{#if success}}
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{success}}
+                </div>
+            {{/if}}
+            {{#if error}}
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{error}}
+                </div>
+            {{/if}}
+            <br><br>
+            <div class='form'>
+                <form action="/all-tasks/new" method="POST">
+                    <input class="form-control" type="text" name="taskName" placeholder="Task Name"required>
+                    <br><br>
+                    <label class="col-form-label"for="list">List: </label>
+                    <select class="custom-select" name="list">
+                    {{#each taskList}}
+                      <option value={{this.name}}>{{this.name}}</option>
+                    {{/each}}
+                    </select>
+                    <br><br>
+                    <button class = 'btn btn-primary' type="submit"> Add </button>
+                    <br><br>
+                    </form>
+            </div>
+       </div> 
+    </div>
+</div>

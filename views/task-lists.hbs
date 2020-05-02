@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">x
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/homepage">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+         <a class="nav-link" href="/task-lists">All Task Lists <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/task-lists/new">Add a New List<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/all-tasks">All Tasks<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/all-tasks/new">Add Task<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Log Out<span class="sr-only">(current)</span></a>
+      </li>
+  </div>
+</nav>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">List Name</th>
+    </tr>
+  </thead>
+    <tbody>
+      {{#each taskList}}
+      <tr>
+      <th scope="row"><a href="/all-tasks?taskName=&completion=All&tlist={{this.name}}">{{this.name}}</a></th>
+    </tr>
+    {{/each}}
+    </tbody>
+</table> 
